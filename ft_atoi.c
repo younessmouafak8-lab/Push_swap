@@ -6,13 +6,13 @@
 /*   By: ymouafak <ymouafak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 21:46:28 by ymouafak          #+#    #+#             */
-/*   Updated: 2025/12/27 14:53:38 by ymouafak         ###   ########.fr       */
+/*   Updated: 2025/12/29 11:55:21 by ymouafak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-long	ft_atoi(const char *str)
+long	ft_atoi(const char *str, char **strs, t_Stack *p)
 {
 	int				i;
 	int				sign;
@@ -36,5 +36,7 @@ long	ft_atoi(const char *str)
 		res = res * 10 + str[i] - 48;
 		i++;
 	}
+	if (str[i] != '\0')
+		ft_exit(p, strs);
 	return (res * sign);
 }

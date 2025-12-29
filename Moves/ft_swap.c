@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ymouafak <ymouafak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/21 16:21:21 by ymouafak          #+#    #+#             */
-/*   Updated: 2025/12/27 16:48:55 by ymouafak         ###   ########.fr       */
+/*   Created: 2025/12/29 11:24:42 by ymouafak          #+#    #+#             */
+/*   Updated: 2025/12/29 14:47:30 by ymouafak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-void	ft_lstadd_front(Stack **lst, int content)
+void	ft_swap(t_Stack	**a)
 {
-	Stack *p;
+	t_Stack *to_swap;
+	t_Stack *to_swap2;
+	t_Stack *rest_list;
 
-	if (!lst)
+	if (!(*a) || !(*a)->next)
 		return ;
-	p = malloc(sizeof(Stack));
-	if (!p)
-		return ;
-	p->d = content;
-	p->next = *lst;
-	*lst = p;
+	to_swap = *a;
+	to_swap2 = (*a)->next;
+	rest_list = to_swap2->next;
+	to_swap->next = rest_list;
+	to_swap2->next = to_swap;
+	*a = to_swap2;
 }

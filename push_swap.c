@@ -6,7 +6,7 @@
 /*   By: ymouafak <ymouafak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/23 16:06:29 by ymouafak          #+#    #+#             */
-/*   Updated: 2025/12/27 17:21:13 by ymouafak         ###   ########.fr       */
+/*   Updated: 2025/12/29 15:51:59 by ymouafak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_countlen(char *str, int i)
 {
-	int counter;
+	int	counter;
 
 	counter = 0;
 	while (str[i] == 32 || str[i] == '0' || str[i] == '-' || str[i] == '+')
@@ -27,7 +27,7 @@ int	ft_countlen(char *str, int i)
 	return (counter);
 }
 
-int	ft_checks(char	*str, Stack	*p, int n)
+int	ft_checks(char	*str,t_Stack	*p, int n)
 {
 	int	i;
 	int	counter;
@@ -42,87 +42,79 @@ int	ft_checks(char	*str, Stack	*p, int n)
 	}
 	while (str[i])
 	{
-		if ((str[i] == '-' || str[i] == '+'))
+		if (str[i] == '-' || str[i] == '+')
 		{
 			counter++;
-			if (counter > 1 || str[i + 1] == ' ' || str[i + 1] == '\0')
+			if (counter > 1 || str[i + 1] == '\0' || str[i + 1] == ' ')
 				return (0);
 		}
-		if ((str[i] < '0' || str[i] > '9') && str[i] != ' ' && (str[i] != '+' && str[i] != '-'))
-			return(0);
 		i++;
 	}
+	
 	return (1);
 }
 
-void	ft_exit(Stack *p)
+t_Stack	*get_num(char *str,t_Stack *p)
 {
-	Stack	*temp;
-
-	while (p)
-	{
-		temp = p;
-		p = p->next;
-		free(temp);
-	}
-
-	write(2, "ERROR\n", 6);
-	exit(1);
-}
-
-Stack	*get_num(char *str, Stack *p)
-{
-	int i;
+	int		i;
 	char	**strs;
-	int count_len;
+	int		count_len;
 	long	n;
 
 	i = 0;
 	strs = ft_split(str, ' ');
 	if (!strs || !(*strs))
-	{
-		ft_exit(p);	
-	}
-	printf("%p\n", strs);
+		ft_exit(p, strs);
 	while (strs[i])
 	{
 		count_len = ft_countlen(strs[i], i);
-		n = ft_atoi(strs[i]);
-		if ((n >= INT_MIN && n <= INT_MAX) && count_len < 11 && ft_checks(strs[i], p, n))
-			ft_lstadd_front(&p, n);
+		n = ft_atoi(strs[i], strs, p);
+		if ((n >= INT_MIN && n <= INT_MAX) && count_len < 11
+			&& ft_checks(strs[i], p, n))
+		{
+			if (!ft_lstadd_back(&p, n))
+				ft_exit(p, strs);
+		}
 		else
-			ft_exit(p);
+			ft_exit(p, strs);
 		i++;
 	}
-	printf("%p\n", p);
 	ft_free(strs);
 	return (p);
 }
 
 int	main(int argc, char **str)
 {
-	int i;
-	Stack	*p;
-	Stack	*temp;
+	int		i;
+	t_Stack	*a;
+	t_Stack	*b;
+	t_Stack	*temp;
 
 	i = 1;
-	p = NULL;
+	a = NULL;
+	b = NULL;
 	if (argc == 1)
-		ft_exit(p);
+		return (0);
 	while (i < argc)
 	{
-		p = get_num(str[i], p);
+		a = get_num(str[i], a);
 		i++;
 	}
-	while (p)
+	temp = a;
+	while (temp)
 	{
-		printf("%d\n", p->d);
-		p = p->next;
+		printf("%d\n", temp->d);
+		temp = temp->next;
 	}
-	while (p)
+	ft_push(&a, &b);
+	temp = b;
+	printf("after: %p\n", temp);
+	while (temp)
 	{
-		temp = p;
-		p = p->next;
-		free(temp);
+		printf("%d\n", temp->d);
+		temp = temp->next;
 	}
+	ft_free_list(&a);
+	ft_free_list(&b);
+	return (0);
 }

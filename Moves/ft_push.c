@@ -6,11 +6,11 @@
 /*   By: ymouafak <ymouafak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/03 14:03:26 by ymouafak          #+#    #+#             */
-/*   Updated: 2026/01/03 14:04:44 by ymouafak         ###   ########.fr       */
+/*   Updated: 2026/01/03 16:05:41 by ymouafak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	ft_push(t_Stack	**a, t_Stack **b)
 {
@@ -22,4 +22,14 @@ void	ft_push(t_Stack	**a, t_Stack **b)
 	*a = (*a)->next;
 	to_push->next = *b;
 	*b = to_push;
+}
+
+void	pa(t_Stack	**a, t_Stack **b)
+{
+	ft_push(b, a);
+}
+
+void	pb(t_Stack	**a, t_Stack **b)
+{
+	ft_push(a, b);
 }

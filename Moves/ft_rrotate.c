@@ -1,35 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algo.c                                             :+:      :+:    :+:   */
+/*   ft_rrotate.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ymouafak <ymouafak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/31 21:49:29 by ymouafak          #+#    #+#             */
-/*   Updated: 2026/01/03 16:17:44 by ymouafak         ###   ########.fr       */
+/*   Created: 2026/01/03 15:12:57 by ymouafak          #+#    #+#             */
+/*   Updated: 2026/01/03 15:52:04 by ymouafak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-void	algo(t_Stack **a, t_Stack **b)
+void	ft_rrotate(t_Stack **a)
 {
-	int	median;
+	t_Stack	*to_rotate;
+	t_Stack	*temp;
 
-	ft_index(*a);
-	ft_pos(*a);
-	median = ft_length(*a) / 2;
-	while (ft_length(*a) > 3)
-	{
-		// if ((*a)->index >= median)
-		// {
-		// 	pb(a, b);
-		// 	ft_rotate(b);
-		// }
-		// else
-			pb(a, b);
-	}
-	// ft_printlist(*a);
-	while (!is_sorted(*a))
-		ft_subsort(a);
+	if (!(*a) || !(*a)->next)
+		return ;
+	temp = *a;
+	while (temp->next)
+		temp = temp->next;
+	to_rotate = temp;
+	to_rotate->next = *a;
+	temp = *a;
+	while (temp->next != to_rotate)
+		temp = temp->next;
+	temp->next = NULL;
+	*a = to_rotate;
 }

@@ -1,29 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_swap.c                                          :+:      :+:    :+:   */
+/*   indexing.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ymouafak <ymouafak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/03 14:05:03 by ymouafak          #+#    #+#             */
-/*   Updated: 2026/01/03 14:05:52 by ymouafak         ###   ########.fr       */
+/*   Created: 2025/12/31 15:15:50 by ymouafak          #+#    #+#             */
+/*   Updated: 2026/01/03 13:58:44 by ymouafak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_swap(t_Stack	**a)
+void	ft_index(t_Stack	*a)
 {
-	t_Stack *to_swap;
-	t_Stack *to_swap2;
-	t_Stack *rest_list;
+	t_Stack	*i;
+	t_Stack	*j;
+	int		index;
 
-	if (!(*a) || !(*a)->next)
-		return ;
-	to_swap = *a;
-	to_swap2 = (*a)->next;
-	rest_list = to_swap2->next;
-	to_swap->next = rest_list;
-	to_swap2->next = to_swap;
-	*a = to_swap2;
+	i = a;
+	while (i)
+	{
+		index = 0;
+		j = a;
+		while (j)
+		{
+			if (i->d > j->d)
+				index++;
+			j = j->next;
+		}
+		i->index = index;
+		i = i->next;
+	}
 }

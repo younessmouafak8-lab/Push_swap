@@ -6,7 +6,7 @@
 /*   By: ymouafak <ymouafak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 17:54:34 by ymouafak          #+#    #+#             */
-/*   Updated: 2025/12/28 15:05:23 by ymouafak         ###   ########.fr       */
+/*   Updated: 2026/01/03 13:58:43 by ymouafak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static	size_t	ft_fill(const char *s1, char *s2, char c)
 	return (i);
 }
 
-static	void	*my_free(char **p, size_t	counter)
+static	void	*my_free(char **p)
 {
 	size_t	i;
 
@@ -93,7 +93,7 @@ char	**ft_split(char const *s, char c)
 		{
 			p[i2] = malloc((ft_wordlen(&s[i], c) + 1) * sizeof(char));
 			if (!p[i2])
-				return (my_free(p, i2));
+				return (my_free(p));
 			i += ft_fill(&s[i], p[i2], c);
 			i2++;
 		}

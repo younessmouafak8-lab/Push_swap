@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_swap.c                                          :+:      :+:    :+:   */
+/*   is_sorted.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ymouafak <ymouafak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/03 14:05:03 by ymouafak          #+#    #+#             */
-/*   Updated: 2026/01/03 14:05:52 by ymouafak         ###   ########.fr       */
+/*   Created: 2026/01/03 11:58:50 by ymouafak          #+#    #+#             */
+/*   Updated: 2026/01/03 13:58:43 by ymouafak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_swap(t_Stack	**a)
+int	is_sorted(t_Stack	*a)
 {
-	t_Stack *to_swap;
-	t_Stack *to_swap2;
-	t_Stack *rest_list;
+	t_Stack	*i;
+	t_Stack	*j;
 
-	if (!(*a) || !(*a)->next)
-		return ;
-	to_swap = *a;
-	to_swap2 = (*a)->next;
-	rest_list = to_swap2->next;
-	to_swap->next = rest_list;
-	to_swap2->next = to_swap;
-	*a = to_swap2;
+	i = a;
+	while (i)
+	{
+		j = i->next;
+		if (j && i->index > j->index)
+			return  (0);
+		i = i->next;
+	}
+	return (1);
 }

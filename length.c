@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_swap.c                                          :+:      :+:    :+:   */
+/*   length.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ymouafak <ymouafak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/03 14:05:03 by ymouafak          #+#    #+#             */
-/*   Updated: 2026/01/03 14:05:52 by ymouafak         ###   ########.fr       */
+/*   Created: 2026/01/02 20:55:28 by ymouafak          #+#    #+#             */
+/*   Updated: 2026/01/03 13:59:07 by ymouafak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_swap(t_Stack	**a)
+int	ft_length(t_Stack *a)
 {
-	t_Stack *to_swap;
-	t_Stack *to_swap2;
-	t_Stack *rest_list;
+	int		length;
 
-	if (!(*a) || !(*a)->next)
-		return ;
-	to_swap = *a;
-	to_swap2 = (*a)->next;
-	rest_list = to_swap2->next;
-	to_swap->next = rest_list;
-	to_swap2->next = to_swap;
-	*a = to_swap2;
+	length = 0;
+	while (a)
+	{
+		length++;
+		a = a->next;
+	}
+	return (length);
 }

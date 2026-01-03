@@ -6,7 +6,7 @@
 /*   By: ymouafak <ymouafak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/23 16:06:29 by ymouafak          #+#    #+#             */
-/*   Updated: 2025/12/29 15:51:59 by ymouafak         ###   ########.fr       */
+/*   Updated: 2026/01/03 13:59:08 by ymouafak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,6 @@ int	main(int argc, char **str)
 	int		i;
 	t_Stack	*a;
 	t_Stack	*b;
-	t_Stack	*temp;
 
 	i = 1;
 	a = NULL;
@@ -100,20 +99,13 @@ int	main(int argc, char **str)
 		a = get_num(str[i], a);
 		i++;
 	}
-	temp = a;
-	while (temp)
-	{
-		printf("%d\n", temp->d);
-		temp = temp->next;
-	}
-	ft_push(&a, &b);
-	temp = b;
-	printf("after: %p\n", temp);
-	while (temp)
-	{
-		printf("%d\n", temp->d);
-		temp = temp->next;
-	}
+	// ft_printlist(a);
+	algo(&a, &b);
+	// printf("after : %d\n", a->d);
+	printf("a :after\n");
+	ft_printlist(a);
+	printf("b :after\n");
+	ft_printlist(b);
 	ft_free_list(&a);
 	ft_free_list(&b);
 	return (0);

@@ -1,29 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_swap.c                                          :+:      :+:    :+:   */
+/*   subsort.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ymouafak <ymouafak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/03 14:05:03 by ymouafak          #+#    #+#             */
-/*   Updated: 2026/01/03 14:05:52 by ymouafak         ###   ########.fr       */
+/*   Created: 2026/01/02 22:10:01 by ymouafak          #+#    #+#             */
+/*   Updated: 2026/01/03 13:58:42 by ymouafak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_swap(t_Stack	**a)
+void	ft_subsort(t_Stack **a)
 {
-	t_Stack *to_swap;
-	t_Stack *to_swap2;
-	t_Stack *rest_list;
+	t_Stack	*i;
+	t_Stack	*j;
 
-	if (!(*a) || !(*a)->next)
-		return ;
-	to_swap = *a;
-	to_swap2 = (*a)->next;
-	rest_list = to_swap2->next;
-	to_swap->next = rest_list;
-	to_swap2->next = to_swap;
-	*a = to_swap2;
+
+	i = *a;
+	j = i->next;
+	if (j && i->index > j->index)
+		sa(a);
+	i = (*a)->next;
+	j = i->next;
+	if (j && i->index > j->index)
+		ft_rrotate(a);
+	i = *a;
+	j = i->next;
+	j = j->next;
+	if (j && i->index > j->index)
+		ft_rrotate(a);
+	ft_pos(*a);
 }

@@ -6,7 +6,7 @@
 /*   By: ymouafak <ymouafak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/03 15:12:57 by ymouafak          #+#    #+#             */
-/*   Updated: 2026/01/03 15:52:04 by ymouafak         ###   ########.fr       */
+/*   Updated: 2026/01/05 16:29:19 by ymouafak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,16 @@ void	ft_rrotate(t_Stack **a)
 		temp = temp->next;
 	temp->next = NULL;
 	*a = to_rotate;
+}
+
+void	rra(t_Stack **a)
+{
+	ft_rrotate(a);
+	write(1, "rra\n", 4);
+}
+
+void	rrb(t_Stack **b)
+{
+	ft_rrotate(b);
+	write(1, "rrb\n", 4);
 }

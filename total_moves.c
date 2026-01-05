@@ -6,7 +6,7 @@
 /*   By: ymouafak <ymouafak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 13:43:22 by ymouafak          #+#    #+#             */
-/*   Updated: 2026/01/04 15:31:41 by ymouafak         ###   ########.fr       */
+/*   Updated: 2026/01/05 16:05:49 by ymouafak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,15 @@ int	total_moves(t_Stack *a, t_Stack *b, t_Stack *node)
 	b_size = ft_length(b);
 	ft_pos(b);
 	ft_pos(a);
-	if (node->position >= b_size)
+	// printf("hh\n");
+	if (node->position <= b_size)
 		total = node->position;
 	else
 		total = b_size - node->position;
 	target = find_target(a, node);
-	if (target->position >= a_size)
+	// printf("hna\n");
+	// printf("target -> %p",target);
+	if (target->position <= a_size)
 		total += target->position;
 	else
 		total += a_size - target->position;

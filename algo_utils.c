@@ -1,37 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_push.c                                          :+:      :+:    :+:   */
+/*   algo_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ymouafak <ymouafak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/03 14:03:26 by ymouafak          #+#    #+#             */
-/*   Updated: 2026/01/05 16:22:36 by ymouafak         ###   ########.fr       */
+/*   Created: 2026/01/05 11:28:55 by ymouafak          #+#    #+#             */
+/*   Updated: 2026/01/05 16:43:54 by ymouafak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
-void	ft_push(t_Stack	**a, t_Stack **b)
+t_Stack	*smallest_target(t_Stack *a)
 {
-	t_Stack	*to_push;
+	t_Stack	*temp;
 
-	if (!(*a))
-		return ;
-	to_push = *a;
-	*a = (*a)->next;
-	to_push->next = *b;
-	*b = to_push;
+	temp = a;
+	while (a)
+	{
+		if (a->index < temp->index)
+			temp = a;
+		a = a->next;
+	}
+	return (temp);
 }
 
-void	pa(t_Stack	**a, t_Stack **b)
+void	step_1(t_Stack **a, t_Stack **b, int median)
 {
-	ft_push(b, a);
-	write(1, "pa\n",3);
-}
-
-void	pb(t_Stack	**a, t_Stack **b)
-{
-	ft_push(a, b);
-	write(1, "pb\n",3);
+	while (ft_length(*a) > 3)
+	{
+		if ((*a)->index >= median)
+		{
+			pb(a, b);
+			rb(b);
+		}
+		else
+			pb(a, b);
+	}
 }

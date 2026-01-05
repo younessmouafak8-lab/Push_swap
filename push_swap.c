@@ -6,7 +6,7 @@
 /*   By: ymouafak <ymouafak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/23 16:06:29 by ymouafak          #+#    #+#             */
-/*   Updated: 2026/01/03 15:43:55 by ymouafak         ###   ########.fr       */
+/*   Updated: 2026/01/05 16:45:00 by ymouafak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	ft_countlen(char *str, int i)
 	return (counter);
 }
 
-int	ft_checks(char	*str,t_Stack	*p, int n)
+int	ft_checks(char	*str, t_Stack	*p, int n)
 {
 	int	i;
 	int	counter;
@@ -50,11 +50,10 @@ int	ft_checks(char	*str,t_Stack	*p, int n)
 		}
 		i++;
 	}
-	
 	return (1);
 }
 
-t_Stack	*get_num(char *str,t_Stack *p)
+t_Stack	*get_num(char *str, t_Stack *p)
 {
 	int		i;
 	char	**strs;
@@ -101,11 +100,8 @@ int	main(int argc, char **str)
 	}
 	// ft_printlist(a);
 	algo(&a, &b);
-	// printf("after : %d\n", a->d);
-	printf("a :after\n");
-	ft_printlist(a);
-	printf("b :after\n");
-	ft_printlist(b);
+	// printf("a :after\n");
+	// ft_printlist(a);
 	ft_free_list(&a);
 	ft_free_list(&b);
 	return (0);

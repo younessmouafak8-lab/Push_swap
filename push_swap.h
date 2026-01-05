@@ -6,7 +6,7 @@
 /*   By: ymouafak <ymouafak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/24 14:37:15 by ymouafak          #+#    #+#             */
-/*   Updated: 2026/01/03 15:41:43 by ymouafak         ###   ########.fr       */
+/*   Updated: 2026/01/05 16:28:41 by ymouafak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,23 @@ void	pa(t_Stack	**a, t_Stack **b);
 void	pb(t_Stack	**a, t_Stack **b);
 void	ft_printlist(t_Stack *p);
 void	ft_rotate(t_Stack **a);
+void	ra(t_Stack **a);
+void	rb(t_Stack **a);
 void	ft_rrotate(t_Stack **a);
+void	rra(t_Stack **a);
+void	rrb(t_Stack **a);
 void	ft_index(t_Stack	*a);
 void	algo(t_Stack **a, t_Stack **b);
 int	ft_length(t_Stack *a);
 void	ft_pos(t_Stack	*a);
 void	ft_subsort(t_Stack **a);
 int	is_sorted(t_Stack	*a);
+int	total_moves(t_Stack *a, t_Stack *b, t_Stack *node);
+t_Stack *find_target(t_Stack *a, t_Stack *node);
+t_Stack	*smallest_target(t_Stack *a);
+void	step_1(t_Stack **a, t_Stack **b, int median);
+t_Stack	*cheapest(t_Stack **a, t_Stack **b);
+void	ft_execute(t_Stack **a, t_Stack **b, t_Stack *node);
+void	final_touches(t_Stack **a);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: ymouafak <ymouafak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/02 22:10:01 by ymouafak          #+#    #+#             */
-/*   Updated: 2026/01/03 13:58:42 by ymouafak         ###   ########.fr       */
+/*   Updated: 2026/01/05 16:44:22 by ymouafak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@ void	ft_subsort(t_Stack **a)
 	i = (*a)->next;
 	j = i->next;
 	if (j && i->index > j->index)
-		ft_rrotate(a);
+		rra(a);
 	i = *a;
 	j = i->next;
 	j = j->next;
 	if (j && i->index > j->index)
-		ft_rrotate(a);
+		rra(a);
 	ft_pos(*a);
 }

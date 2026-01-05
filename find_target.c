@@ -6,7 +6,7 @@
 /*   By: ymouafak <ymouafak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 13:58:45 by ymouafak          #+#    #+#             */
-/*   Updated: 2026/01/04 14:52:57 by ymouafak         ###   ########.fr       */
+/*   Updated: 2026/01/05 16:07:46 by ymouafak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ t_Stack *find_target(t_Stack *a, t_Stack *node)
 
 	temp = a;
 	min_bigger = INT_MAX;
+	target = NULL;
 	while (temp)
 	{
 		if (temp->index > node->index && temp->d < min_bigger)
@@ -30,13 +31,6 @@ t_Stack *find_target(t_Stack *a, t_Stack *node)
 		temp = temp->next;
 	}
 	if (!target)
-	{
-		while (a)
-		{
-			if (a->index == 0)
-				target = a;
-			a = a->next;
-		}
-	}
+		target = smallest_target(a);
 	return (target);
 }

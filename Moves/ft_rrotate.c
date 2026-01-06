@@ -6,7 +6,7 @@
 /*   By: ymouafak <ymouafak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/03 15:12:57 by ymouafak          #+#    #+#             */
-/*   Updated: 2026/01/05 16:29:19 by ymouafak         ###   ########.fr       */
+/*   Updated: 2026/01/06 15:46:16 by ymouafak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,11 @@ void	rrb(t_Stack **b)
 {
 	ft_rrotate(b);
 	write(1, "rrb\n", 4);
+}
+
+void	rrr(t_Stack **a, t_Stack **b)
+{
+	ft_rrotate(a);
+	ft_rrotate(b);
+	write(1, "rrr\n", 4);
 }

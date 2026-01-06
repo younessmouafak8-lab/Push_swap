@@ -6,7 +6,7 @@
 /*   By: ymouafak <ymouafak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/24 14:37:15 by ymouafak          #+#    #+#             */
-/*   Updated: 2026/01/05 16:28:41 by ymouafak         ###   ########.fr       */
+/*   Updated: 2026/01/06 13:52:24 by ymouafak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,11 @@ void	ft_printlist(t_Stack *p);
 void	ft_rotate(t_Stack **a);
 void	ra(t_Stack **a);
 void	rb(t_Stack **a);
+void	rr(t_Stack **a, t_Stack **b);
 void	ft_rrotate(t_Stack **a);
 void	rra(t_Stack **a);
 void	rrb(t_Stack **a);
+void	rrr(t_Stack **a, t_Stack **b);
 void	ft_index(t_Stack	*a);
 void	algo(t_Stack **a, t_Stack **b);
 int	ft_length(t_Stack *a);

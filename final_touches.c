@@ -6,7 +6,7 @@
 /*   By: ymouafak <ymouafak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 15:34:13 by ymouafak          #+#    #+#             */
-/*   Updated: 2026/01/05 16:33:41 by ymouafak         ###   ########.fr       */
+/*   Updated: 2026/01/06 15:52:18 by ymouafak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	final_touches(t_Stack **a)
 {
 	t_Stack	*temp;
 	t_Stack	*head;
-	int median;
+	int		median;
 
 	temp = *a;
 	median = ft_length(*a) / 2;

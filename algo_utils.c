@@ -6,7 +6,7 @@
 /*   By: ymouafak <ymouafak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 11:28:55 by ymouafak          #+#    #+#             */
-/*   Updated: 2026/01/05 16:43:54 by ymouafak         ###   ########.fr       */
+/*   Updated: 2026/01/06 15:12:36 by ymouafak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	step_1(t_Stack **a, t_Stack **b, int median)
 {
 	while (ft_length(*a) > 3)
 	{
-		if ((*a)->index >= median)
+		if ((*a)->index >= median && ft_length(*b) > 1)
 		{
 			pb(a, b);
 			rb(b);

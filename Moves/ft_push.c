@@ -6,7 +6,7 @@
 /*   By: ymouafak <ymouafak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/03 14:03:26 by ymouafak          #+#    #+#             */
-/*   Updated: 2026/01/05 16:22:36 by ymouafak         ###   ########.fr       */
+/*   Updated: 2026/01/06 15:51:54 by ymouafak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ void	ft_push(t_Stack	**a, t_Stack **b)
 void	pa(t_Stack	**a, t_Stack **b)
 {
 	ft_push(b, a);
-	write(1, "pa\n",3);
+	write(1, "pa\n", 3);
 }
 
 void	pb(t_Stack	**a, t_Stack **b)
 {
 	ft_push(a, b);
-	write(1, "pb\n",3);
+	write(1, "pb\n", 3);
 }

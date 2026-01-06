@@ -6,7 +6,7 @@
 /*   By: ymouafak <ymouafak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/23 16:06:29 by ymouafak          #+#    #+#             */
-/*   Updated: 2026/01/05 16:45:00 by ymouafak         ###   ########.fr       */
+/*   Updated: 2026/01/06 16:05:44 by ymouafak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,10 +98,7 @@ int	main(int argc, char **str)
 		a = get_num(str[i], a);
 		i++;
 	}
-	// ft_printlist(a);
 	algo(&a, &b);
-	// printf("a :after\n");
-	// ft_printlist(a);
 	ft_free_list(&a);
 	ft_free_list(&b);
 	return (0);

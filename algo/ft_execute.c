@@ -6,11 +6,11 @@
 /*   By: ymouafak <ymouafak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 15:02:58 by ymouafak          #+#    #+#             */
-/*   Updated: 2026/01/06 15:56:35 by ymouafak         ###   ########.fr       */
+/*   Updated: 2026/01/07 20:51:43 by ymouafak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	ft_extra_a(t_Stack **a, t_Stack *temp, int a_size)
 {
@@ -37,8 +37,8 @@ void	ft_extra_b(t_Stack **b, t_Stack *node, int b_size)
 void	ft_execute(t_Stack **a, t_Stack **b, t_Stack *node)
 {
 	t_Stack	*temp;
-	int	b_size;
-	int	a_size;
+	int		b_size;
+	int		a_size;
 
 	ft_pos(*b);
 	ft_pos(*a);
@@ -48,11 +48,11 @@ void	ft_execute(t_Stack **a, t_Stack **b, t_Stack *node)
 	while (*b != node && *a != temp)
 	{
 		if (node->position <= b_size && temp->position <= a_size)
-			rr(a,b);
+			rr(a, b);
 		else if (node->position > b_size && temp->position > a_size)
 			rrr(a, b);
 		else
-			break;
+			break ;
 	}
 	if (*b != node)
 		ft_extra_b(b, node, b_size);

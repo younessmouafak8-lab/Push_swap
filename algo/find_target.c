@@ -1,36 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   final_touches.c                                    :+:      :+:    :+:   */
+/*   find_target.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ymouafak <ymouafak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/05 15:34:13 by ymouafak          #+#    #+#             */
-/*   Updated: 2026/01/06 15:52:18 by ymouafak         ###   ########.fr       */
+/*   Created: 2026/01/04 13:58:45 by ymouafak          #+#    #+#             */
+/*   Updated: 2026/01/07 20:51:38 by ymouafak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-void	final_touches(t_Stack **a)
+t_Stack	*find_target(t_Stack *a, t_Stack *node)
 {
 	t_Stack	*temp;
-	t_Stack	*head;
-	int		median;
+	t_Stack	*target;
+	int		min_bigger;
 
-	temp = *a;
-	median = ft_length(*a) / 2;
+	temp = a;
+	min_bigger = INT_MAX;
+	target = NULL;
 	while (temp)
 	{
-		if (temp->index == 0)
-			head = temp;
+		if (temp->index > node->index && temp->d < min_bigger)
+		{
+			min_bigger = temp->d;
+			target = temp;
+		}
 		temp = temp->next;
 	}
-	while (*a != head)
-	{
-		if (head->position <= median)
-			ra(a);
-		else
-			rra(a);
-	}
+	if (!target)
+		target = smallest_target(a);
+	return (target);
 }

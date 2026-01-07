@@ -1,36 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   find_target.c                                      :+:      :+:    :+:   */
+/*   subsort.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ymouafak <ymouafak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/04 13:58:45 by ymouafak          #+#    #+#             */
-/*   Updated: 2026/01/05 16:07:46 by ymouafak         ###   ########.fr       */
+/*   Created: 2026/01/02 22:10:01 by ymouafak          #+#    #+#             */
+/*   Updated: 2026/01/07 20:51:59 by ymouafak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-t_Stack *find_target(t_Stack *a, t_Stack *node)
+void	ft_subsort(t_Stack **a)
 {
-	t_Stack	*temp;
-	t_Stack	*target;
-	int min_bigger;
+	t_Stack	*i;
+	t_Stack	*j;
 
-	temp = a;
-	min_bigger = INT_MAX;
-	target = NULL;
-	while (temp)
-	{
-		if (temp->index > node->index && temp->d < min_bigger)
-		{
-			min_bigger = temp->d;
-			target = temp;
-		}
-		temp = temp->next;
-	}
-	if (!target)
-		target = smallest_target(a);
-	return (target);
+	i = *a;
+	j = i->next;
+	if (j && i->index > j->index && i->index > (j->next)->index)
+		ra(a);
+	i = *a;
+	j = i->next;
+	if (j && i->index > j->index)
+		sa(a);
+	i = (*a)->next;
+	j = i->next;
+	if (j && i->index > j->index)
+		rra(a);
+	i = *a;
+	j = i->next;
+	j = j->next;
+	if (j && i->index > j->index)
+		rra(a);
+	ft_pos(*a);
 }

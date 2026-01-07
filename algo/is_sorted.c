@@ -1,41 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algo_utils.c                                       :+:      :+:    :+:   */
+/*   is_sorted.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ymouafak <ymouafak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/05 11:28:55 by ymouafak          #+#    #+#             */
-/*   Updated: 2026/01/06 15:12:36 by ymouafak         ###   ########.fr       */
+/*   Created: 2026/01/03 11:58:50 by ymouafak          #+#    #+#             */
+/*   Updated: 2026/01/07 20:51:48 by ymouafak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-t_Stack	*smallest_target(t_Stack *a)
+int	is_sorted(t_Stack	*a)
 {
-	t_Stack	*temp;
+	t_Stack	*i;
+	t_Stack	*j;
 
-	temp = a;
-	while (a)
+	i = a;
+	while (i)
 	{
-		if (a->index < temp->index)
-			temp = a;
-		a = a->next;
+		j = i->next;
+		if (j && i->index > j->index)
+			return (0);
+		i = i->next;
 	}
-	return (temp);
-}
-
-void	step_1(t_Stack **a, t_Stack **b, int median)
-{
-	while (ft_length(*a) > 3)
-	{
-		if ((*a)->index >= median && ft_length(*b) > 1)
-		{
-			pb(a, b);
-			rb(b);
-		}
-		else
-			pb(a, b);
-	}
+	return (1);
 }

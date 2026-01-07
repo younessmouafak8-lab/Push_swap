@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_sorted.c                                        :+:      :+:    :+:   */
+/*   algo.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ymouafak <ymouafak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/03 11:58:50 by ymouafak          #+#    #+#             */
-/*   Updated: 2026/01/03 15:45:37 by ymouafak         ###   ########.fr       */
+/*   Created: 2025/12/31 21:49:29 by ymouafak          #+#    #+#             */
+/*   Updated: 2026/01/07 20:51:28 by ymouafak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-int	is_sorted(t_Stack	*a)
+void	algo(t_Stack **a, t_Stack **b)
 {
-	t_Stack	*i;
-	t_Stack	*j;
+	t_Stack	*temp;
+	t_Stack	*current;
+	int		median;
 
-	i = a;
-	while (i)
+	ft_index(*a);
+	ft_pos(*a);
+	median = ft_length(*a) / 2;
+	step_1(a, b, median);
+	while (!is_sorted(*a))
+		ft_subsort(a);
+	current = *b;
+	while (*b)
 	{
-		j = i->next;
-		if (j && i->index > j->index)
-			return  (0);
-		i = i->next;
+		temp = cheapest(a, b);
+		ft_execute(a, b, temp);
 	}
-	return (1);
+	final_touches(a);
 }

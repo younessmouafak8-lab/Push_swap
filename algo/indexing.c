@@ -1,25 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   position.c                                         :+:      :+:    :+:   */
+/*   indexing.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ymouafak <ymouafak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/02 20:46:11 by ymouafak          #+#    #+#             */
-/*   Updated: 2026/01/03 13:58:45 by ymouafak         ###   ########.fr       */
+/*   Created: 2025/12/31 15:15:50 by ymouafak          #+#    #+#             */
+/*   Updated: 2026/01/07 20:51:14 by ymouafak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-void	ft_pos(t_Stack	*a)
+void	ft_index(t_Stack	*a)
 {
-	int		position;
+	t_Stack	*i;
+	t_Stack	*j;
+	int		index;
 
-	position = 0;
-	while (a)
+	i = a;
+	while (i)
 	{
-		a->position = position++;
-		a = a->next;
+		index = 0;
+		j = a;
+		while (j)
+		{
+			if (i->d > j->d)
+				index++;
+			j = j->next;
+		}
+		i->index = index;
+		i = i->next;
 	}
 }

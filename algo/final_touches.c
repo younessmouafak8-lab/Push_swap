@@ -1,34 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algo.c                                             :+:      :+:    :+:   */
+/*   final_touches.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ymouafak <ymouafak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/31 21:49:29 by ymouafak          #+#    #+#             */
-/*   Updated: 2026/01/06 15:11:55 by ymouafak         ###   ########.fr       */
+/*   Created: 2026/01/05 15:34:13 by ymouafak          #+#    #+#             */
+/*   Updated: 2026/01/07 20:51:35 by ymouafak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-void	algo(t_Stack **a, t_Stack **b)
+void	final_touches(t_Stack **a)
 {
 	t_Stack	*temp;
-	t_Stack	*current;
-	int	median;
+	t_Stack	*head;
+	int		median;
 
-	ft_index(*a);
-	ft_pos(*a);
+	temp = *a;
 	median = ft_length(*a) / 2;
-	step_1(a, b, median);
-	while (!is_sorted(*a))
-		ft_subsort(a);
-	current = *b;
-	while (*b)
+	ft_pos(*a);
+	while (temp)
 	{
-		temp = cheapest(a, b);
-		ft_execute(a, b, temp);
+		if (temp->index == 0)
+			head = temp;
+		temp = temp->next;
 	}
-	final_touches(a);
+	while (*a != head)
+	{
+		if (head->position <= median)
+			ra(a);
+		else
+			rra(a);
+	}
 }

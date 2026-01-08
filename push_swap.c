@@ -6,17 +6,19 @@
 /*   By: ymouafak <ymouafak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/23 16:06:29 by ymouafak          #+#    #+#             */
-/*   Updated: 2026/01/06 16:05:44 by ymouafak         ###   ########.fr       */
+/*   Updated: 2026/01/08 15:38:13 by ymouafak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_countlen(char *str, int i)
+static int	ft_countlen(char *str)
 {
 	int	counter;
+	int	i;
 
 	counter = 0;
+	i = 0;
 	while (str[i] == 32 || str[i] == '0' || str[i] == '-' || str[i] == '+')
 		i++;
 	while ('0' <= str[i] && str[i] <= '9')
@@ -27,7 +29,7 @@ int	ft_countlen(char *str, int i)
 	return (counter);
 }
 
-int	ft_checks(char	*str, t_Stack	*p, int n)
+static int	ft_checks(char	*str, t_Stack	*p, int n)
 {
 	int	i;
 	int	counter;
@@ -53,7 +55,7 @@ int	ft_checks(char	*str, t_Stack	*p, int n)
 	return (1);
 }
 
-t_Stack	*get_num(char *str, t_Stack *p)
+static t_Stack	*get_num(char *str, t_Stack *p)
 {
 	int		i;
 	char	**strs;
@@ -66,7 +68,7 @@ t_Stack	*get_num(char *str, t_Stack *p)
 		ft_exit(p, strs);
 	while (strs[i])
 	{
-		count_len = ft_countlen(strs[i], i);
+		count_len = ft_countlen(strs[i]);
 		n = ft_atoi(strs[i], strs, p);
 		if ((n >= INT_MIN && n <= INT_MAX) && count_len < 11
 			&& ft_checks(strs[i], p, n))

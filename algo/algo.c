@@ -6,7 +6,7 @@
 /*   By: ymouafak <ymouafak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/31 21:49:29 by ymouafak          #+#    #+#             */
-/*   Updated: 2026/01/07 20:51:28 by ymouafak         ###   ########.fr       */
+/*   Updated: 2026/01/07 21:20:39 by ymouafak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ void	algo(t_Stack **a, t_Stack **b)
 	ft_index(*a);
 	ft_pos(*a);
 	median = ft_length(*a) / 2;
+	if (is_sorted(*a))
+		return ;
 	step_1(a, b, median);
 	while (!is_sorted(*a))
 		ft_subsort(a);

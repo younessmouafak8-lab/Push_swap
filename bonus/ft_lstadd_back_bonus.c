@@ -1,34 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algo.c                                             :+:      :+:    :+:   */
+/*   ft_lstadd_back_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ymouafak <ymouafak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/31 21:49:29 by ymouafak          #+#    #+#             */
-/*   Updated: 2026/01/09 10:40:32 by ymouafak         ###   ########.fr       */
+/*   Created: 2025/10/21 20:04:19 by ymouafak          #+#    #+#             */
+/*   Updated: 2026/01/10 14:10:35 by ymouafak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../checker_bonus.h"
 
-void	algo(t_Stack **a, t_Stack **b)
+void	*ft_lstadd_back(t_Stack **lst, int content)
 {
-	t_Stack	*temp;
-	int		median;
+	t_Stack	*p;
+	t_Stack	*new;
 
-	ft_index(*a);
-	ft_pos(*a);
-	median = ft_length(*a) / 2;
-	if (is_sorted(*a))
-		return ;
-	step_1(a, b, median);
-	while (!is_sorted(*a))
-		ft_subsort(a);
-	while (*b)
+	if (!lst)
+		return (NULL);
+	new = malloc(sizeof(t_Stack));
+	if (!new)
+		return (NULL);
+	p = *lst;
+	new->d = content;
+	new->next = NULL;
+	if (!p)
 	{
-		temp = cheapest(a, b);
-		ft_execute(a, b, temp);
+		*lst = new;
+		return (*lst);
 	}
-	final_touches(a);
+	while (p->next)
+		p = p->next;
+	p->next = new;
+	return (*lst);
 }

@@ -1,34 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algo.c                                             :+:      :+:    :+:   */
+/*   indexing_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ymouafak <ymouafak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/31 21:49:29 by ymouafak          #+#    #+#             */
-/*   Updated: 2026/01/09 10:40:32 by ymouafak         ###   ########.fr       */
+/*   Created: 2025/12/31 15:15:50 by ymouafak          #+#    #+#             */
+/*   Updated: 2026/01/10 14:11:00 by ymouafak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../checker_bonus.h"
 
-void	algo(t_Stack **a, t_Stack **b)
+void	ft_index(t_Stack	*a)
 {
-	t_Stack	*temp;
-	int		median;
+	t_Stack	*i;
+	t_Stack	*j;
+	int		index;
 
-	ft_index(*a);
-	ft_pos(*a);
-	median = ft_length(*a) / 2;
-	if (is_sorted(*a))
-		return ;
-	step_1(a, b, median);
-	while (!is_sorted(*a))
-		ft_subsort(a);
-	while (*b)
+	i = a;
+	while (i)
 	{
-		temp = cheapest(a, b);
-		ft_execute(a, b, temp);
+		index = 0;
+		j = a;
+		while (j)
+		{
+			if (i->d > j->d)
+				index++;
+			j = j->next;
+		}
+		i->index = index;
+		i = i->next;
 	}
-	final_touches(a);
 }

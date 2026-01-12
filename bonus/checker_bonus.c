@@ -6,11 +6,11 @@
 /*   By: ymouafak <ymouafak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 21:41:55 by ymouafak          #+#    #+#             */
-/*   Updated: 2026/01/08 16:22:26 by ymouafak         ###   ########.fr       */
+/*   Updated: 2026/01/10 14:10:20 by ymouafak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../checker_bonus.h"
 
 static int	ft_countlen(char *str)
 {

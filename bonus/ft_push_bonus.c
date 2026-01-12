@@ -1,34 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algo.c                                             :+:      :+:    :+:   */
+/*   ft_push_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ymouafak <ymouafak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/31 21:49:29 by ymouafak          #+#    #+#             */
-/*   Updated: 2026/01/09 10:40:32 by ymouafak         ###   ########.fr       */
+/*   Created: 2026/01/03 14:03:26 by ymouafak          #+#    #+#             */
+/*   Updated: 2026/01/10 14:10:37 by ymouafak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../checker_bonus.h"
 
-void	algo(t_Stack **a, t_Stack **b)
+void	ft_push(t_Stack	**a, t_Stack **b)
 {
-	t_Stack	*temp;
-	int		median;
+	t_Stack	*to_push;
 
-	ft_index(*a);
-	ft_pos(*a);
-	median = ft_length(*a) / 2;
-	if (is_sorted(*a))
+	if (!(*a))
 		return ;
-	step_1(a, b, median);
-	while (!is_sorted(*a))
-		ft_subsort(a);
-	while (*b)
-	{
-		temp = cheapest(a, b);
-		ft_execute(a, b, temp);
-	}
-	final_touches(a);
+	to_push = *a;
+	*a = (*a)->next;
+	to_push->next = *b;
+	*b = to_push;
 }

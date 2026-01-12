@@ -1,34 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algo.c                                             :+:      :+:    :+:   */
+/*   ft_result_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ymouafak <ymouafak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/31 21:49:29 by ymouafak          #+#    #+#             */
-/*   Updated: 2026/01/09 10:40:32 by ymouafak         ###   ########.fr       */
+/*   Created: 2026/01/08 15:15:06 by ymouafak          #+#    #+#             */
+/*   Updated: 2026/01/10 14:10:39 by ymouafak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../checker_bonus.h"
 
-void	algo(t_Stack **a, t_Stack **b)
+void	ft_result(t_Stack *a, t_Stack *b, char *arg)
 {
-	t_Stack	*temp;
-	int		median;
-
-	ft_index(*a);
-	ft_pos(*a);
-	median = ft_length(*a) / 2;
-	if (is_sorted(*a))
-		return ;
-	step_1(a, b, median);
-	while (!is_sorted(*a))
-		ft_subsort(a);
-	while (*b)
-	{
-		temp = cheapest(a, b);
-		ft_execute(a, b, temp);
-	}
-	final_touches(a);
+	ft_index(a);
+	if (a && is_sorted(a) && !b)
+		write(1, "OK\n", 3);
+	else
+		write(1, "KO\n", 3);
+	ft_free_list(&a);
+	ft_free_list(&b);
+	free(arg);
 }

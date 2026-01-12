@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_result.c                                        :+:      :+:    :+:   */
+/*   is_sorted_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ymouafak <ymouafak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/08 15:15:06 by ymouafak          #+#    #+#             */
-/*   Updated: 2026/01/08 16:19:28 by ymouafak         ###   ########.fr       */
+/*   Created: 2026/01/03 11:58:50 by ymouafak          #+#    #+#             */
+/*   Updated: 2026/01/10 14:34:10 by ymouafak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../checker_bonus.h"
 
-void	ft_result(t_Stack *a, t_Stack *b, char *arg)
+int	is_sorted(t_Stack	*a)
 {
-	if (a && is_sorted(a) && !b)
-		write(1, "OK\n", 3);
-	else
-		write(1, "KO\n", 3);
-	ft_free_list(&a);
-	ft_free_list(&b);
-	free(arg);
+	t_Stack	*i;
+	t_Stack	*j;
+
+	i = a;
+	while (i)
+	{
+		j = i->next;
+		if (j && i->index > j->index)
+			return (0);
+		i = i->next;
+	}
+	return (1);
 }

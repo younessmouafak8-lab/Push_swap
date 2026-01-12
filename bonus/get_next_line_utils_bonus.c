@@ -6,11 +6,11 @@
 /*   By: ymouafak <ymouafak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 17:44:13 by ymouafak          #+#    #+#             */
-/*   Updated: 2026/01/07 21:50:09 by ymouafak         ###   ########.fr       */
+/*   Updated: 2026/01/10 13:39:38 by ymouafak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../checker_bonus.h"
 
 int	ft_strchr(char *s, int c, char **to_store)
 {

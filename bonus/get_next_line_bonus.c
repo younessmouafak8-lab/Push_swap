@@ -6,11 +6,11 @@
 /*   By: ymouafak <ymouafak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 12:02:04 by ymouafak          #+#    #+#             */
-/*   Updated: 2026/01/08 13:00:13 by ymouafak         ###   ########.fr       */
+/*   Updated: 2026/01/10 13:39:35 by ymouafak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../checker_bonus.h"
 
 char	*my_free(char **str, char	*buffer)
 {
